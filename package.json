@@ -1,0 +1,38 @@
+{
+  "name": "computable-function-incremental",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview",
+    "test": "vitest run",
+    "typecheck": "tsc --noEmit",
+    "lint": "biome check src",
+    "format": "biome format --write src"
+  },
+  "dependencies": {
+    "@fontsource/klee-one": "^5.3.1",
+    "@fontsource/zen-kurenaido": "^5.3.1",
+    "break_infinity.js": "^2.2.0",
+    "idb-keyval": "^6.3.0",
+    "lz-string": "^1.5.0",
+    "papercss": "^1.9.2",
+    "pixi.js": "^8.22.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "roughjs": "^4.6.6",
+    "zustand": "^5.1.0"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "^2.6.6",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.3.0",
+    "fast-check": "^4.10.2",
+    "typescript": "^7.0.2",
+    "vite": "^8.3.8",
+    "vitest": "^5.1.0"
+  }
+}

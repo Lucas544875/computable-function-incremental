@@ -1,0 +1,295 @@
+/* レイアウトと書体だけを定める。色・部品の見た目は PaperCSS に従う(仕様書 §5.1) */
+html,
+body,
+#root {
+  height: 100%;
+  margin: 0;
+  overflow: hidden;
+}
+html {
+  font-family: "Klee One", sans-serif;
+  font-size: 16px;
+}
+body {
+  background: var(--main-background);
+  color: var(--primary);
+}
+body,
+button,
+input,
+select,
+textarea,
+.paper-btn {
+  font-family: "Klee One", sans-serif;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+.brand,
+.modal-title,
+.card-title {
+  font-family: "Zen Kurenaido", "Klee One", sans-serif;
+  font-weight: 400;
+  margin: 0 0 0.4rem;
+}
+h2 {
+  font-size: 1.7rem;
+}
+h3 {
+  font-size: 1.35rem;
+}
+h4 {
+  font-size: 1.15rem;
+}
+p {
+  margin: 0.3rem 0;
+}
+code,
+.term {
+  font-family: "Klee One", monospace;
+  font-size: 0.95em;
+  word-break: break-all;
+  background: none;
+  color: inherit;
+  padding: 0;
+}
+
+.board {
+  position: absolute;
+  inset: 0;
+}
+.board canvas {
+  display: block;
+  touch-action: none;
+}
+
+.topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  padding: 0.35rem 0.8rem;
+  background: var(--main-background);
+  border-bottom: 2px solid var(--primary);
+  z-index: 20;
+  flex-wrap: wrap;
+}
+.topbar .brand {
+  font-size: 1.3rem;
+  margin: 0;
+}
+.topbar .stat b {
+  font-size: 1.15rem;
+}
+.topbar .spacer {
+  flex: 1;
+}
+.topbar button,
+.hotbar button,
+.row-btns button,
+.inspector button,
+.panel button {
+  margin: 0;
+}
+
+.hotbar {
+  position: absolute;
+  bottom: 0.6rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.3rem;
+  padding: 0.4rem;
+  background: var(--main-background);
+  z-index: 20;
+  max-width: calc(100vw - 1.2rem);
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.hotbar button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-width: 4.1rem;
+  padding: 0.25rem 0.4rem;
+  line-height: 1.25;
+}
+.hotbar button small {
+  color: var(--muted-text);
+}
+.hotbar button.on {
+  background: var(--secondary-light);
+}
+.hotbar .key {
+  font-size: 0.7rem;
+  color: var(--muted-text);
+}
+
+.inspector {
+  position: absolute;
+  top: 4rem;
+  right: 0.6rem;
+  width: 19rem;
+  max-height: calc(100vh - 11rem);
+  overflow: auto;
+  padding: 0.8rem;
+  background: var(--main-background);
+  z-index: 15;
+}
+.inspector label,
+.panel label {
+  display: block;
+  margin-top: 0.5rem;
+  font-size: 0.9rem;
+}
+.inspector select,
+.inspector input,
+.panel select,
+.panel input[type="text"],
+.panel textarea {
+  width: 100%;
+  box-sizing: border-box;
+}
+.row-btns {
+  display: flex;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+  margin-top: 0.5rem;
+  align-items: center;
+}
+
+.guide {
+  position: absolute;
+  left: 0.6rem;
+  bottom: 5.6rem;
+  width: 20rem;
+  padding: 0.7rem 0.9rem;
+  background: var(--main-background);
+  z-index: 15;
+}
+.toasts {
+  position: absolute;
+  left: 50%;
+  top: 4rem;
+  transform: translateX(-50%);
+  z-index: 300;
+  width: min(34rem, 90vw);
+  pointer-events: none;
+}
+.toasts .alert {
+  margin: 0 0 0.4rem;
+  padding: 0.5rem 0.9rem;
+}
+
+.modal.open {
+  opacity: 1;
+  visibility: visible;
+}
+.modal.open .modal-body.panel {
+  top: 50%;
+  width: min(60rem, 94vw);
+  max-height: 88vh;
+  overflow: auto;
+  box-sizing: border-box;
+}
+.panel .head {
+  display: flex;
+  align-items: baseline;
+  gap: 1rem;
+  margin-bottom: 0.6rem;
+}
+.panel .head .spacer {
+  flex: 1;
+}
+.item {
+  padding: 0.6rem 0.8rem;
+  margin: 0 0 0.6rem;
+}
+.line {
+  display: flex;
+  align-items: baseline;
+  gap: 0.6rem;
+  flex-wrap: wrap;
+}
+.line .spacer {
+  flex: 1;
+}
+.item.locked {
+  opacity: 0.55;
+}
+.badge {
+  font-size: 0.75rem;
+  white-space: nowrap;
+}
+.muted {
+  color: var(--muted-text);
+}
+.small {
+  font-size: 0.87rem;
+}
+.grid2 {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(17rem, 1fr));
+  gap: 0.6rem;
+}
+.title {
+  height: 100%;
+  overflow: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  background-image:
+    linear-gradient(var(--secondary-light) 1px, transparent 1px),
+    linear-gradient(90deg, var(--secondary-light) 1px, transparent 1px);
+  background-size: 24px 24px;
+}
+.title h1 {
+  font-size: 2.6rem;
+}
+.title .modes {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+.title .modes .card {
+  width: 21rem;
+  background: var(--main-background);
+}
+.progress {
+  height: 0.8rem;
+  box-shadow: none;
+}
+.note-line {
+  display: flex;
+  gap: 0.6rem;
+  padding: 0.35rem 0;
+  border-bottom: 1px dashed var(--muted-light);
+}
+.note-line .no {
+  width: 1.8rem;
+  text-align: right;
+  color: var(--muted-text);
+}
+.note-line .body {
+  flex: 1;
+}
+table.keys td {
+  padding: 0.15rem 0.6rem;
+  border: none;
+}
+
+select {
+  height: auto;
+  line-height: 1.5;
+  padding: 0.3rem 0.5rem;
+}
